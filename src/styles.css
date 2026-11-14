@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-background: #06090e;
+  --color-foreground: #eef4f8;
+  --color-card: #0d131c;
+  --color-card-elevated: #141d2b;
+  --color-muted: #7d8ea3;
+  --color-muted-foreground: #7d8ea3;
+  --color-border: rgb(16 185 129 / 0.14);
+  --color-border-strong: rgb(16 185 129 / 0.28);
+  --color-primary: #10b981;
+  --color-primary-fg: #04130d;
+  --color-primary-hover: #059669;
+  --color-ring: #10b981;
+  --color-success: #22c55e;
+  --color-danger: #f43f5e;
+  --color-warning: #f59e0b;
+  --color-promo: #093528;
+  --color-promo-fg: #6ee7b7;
+  --color-input: #090e15;
+  --color-accent-soft: rgb(16 185 129 / 0.14);
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --shadow-border: 0 0 0 1px rgb(16 185 129 / 0.14);
+  --shadow-border-hover: 0 0 0 1px rgb(16 185 129 / 0.32);
+  --shadow-float: 0 24px 80px rgb(0 0 0 / 0.65);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    @media (max-width: 900px) {
+      :root {
+        --safe-top: max(env(safe-area-inset-top, 0px), 59px);
+      }
+    }
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    color-scheme: dark;
+    overflow-x: clip;
+  }
+
+  @media (max-width: 480px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    max-width: 100%;
+    overflow-x: clip;
+    overscroll-behavior-y: none;
+    background:
+      radial-gradient(900px circle at 10% -10%, rgb(16 185 129 / 0.08), transparent 55%),
+      radial-gradient(800px circle at 90% 0%, rgb(6 182 212 / 0.06), transparent 50%),
+      var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    padding-top: var(--safe-top);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 60;
+    height: var(--safe-top);
+    background: var(--color-background);
+    pointer-events: none;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.scroll-x {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+.stagger-in > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: rise-in 500ms var(--ease-out) forwards;
+}
+
+.stagger-in > *:nth-child(1) {
+  animation-delay: 40ms;
+}
+.stagger-in > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+.stagger-in > *:nth-child(3) {
+  animation-delay: 140ms;
+}
+.stagger-in > *:nth-child(4) {
+  animation-delay: 190ms;
+}
+.stagger-in > *:nth-child(5) {
+  animation-delay: 240ms;
+}
+.stagger-in > *:nth-child(6) {
+  animation-delay: 290ms;
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phone-frame {
+  transform: perspective(1600px) rotateY(-12deg) rotateX(6deg) rotateZ(1deg);
+  transform-origin: center;
+}
+
+@media (max-width: 900px) {
+  .phone-frame {
+    transform: none;
+  }
+}

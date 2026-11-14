@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Nimbus 369707",
+      "hasCanvas": false,
+      "bodyTextLen": 1549,
+      "bodyTextHash": "92dd440c14280aa1d9ec0251f321e795832bf0b8963e7812a5a788c076b87183",
+      "bodyTextPrefix": "Nimbus 369707 Markets Features Security Log in SELF-CUSTODY · 10",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Nimbus 369707",
+      "hasCanvas": false,
+      "bodyTextLen": 1523,
+      "bodyTextHash": "6ff66bd5078e0831c17b4a4b347fad148e26bddfd9c1d28cc67a09c8de2b7df6",
+      "bodyTextPrefix": "Nimbus 369707 Log in SELF-CUSTODY · 100+ BLOCKCHAINS True crypto",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

@@ -1,0 +1,14 @@
+node_modules/
+.project_id
+.github_repo
+.env
+.env.*
+
+# Vercel prebuilt output must ship its traced runtime dependencies
+!.vercel/output/functions/__server.func/node_modules/
+
+attachments/
+artifacts/
+.netlify/
+dist/
+.git/
